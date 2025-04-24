@@ -7,13 +7,15 @@ def generate_launch_description():
             package='robot_perception',
             namespace='perception',
             executable='follow',
-            name='turtlebot'
+            name='turtlebot',
+            emulate_tty=True,
         ),
         Node(
             package='robot_perception',
             namespace='perception',
             executable='avoid',
-            name='turtlebot'
+            name='turtlebot',
+            emulate_tty=True, # pour pas bloquer les fenetres
         ),
         Node(
             package='robot_navigation',
