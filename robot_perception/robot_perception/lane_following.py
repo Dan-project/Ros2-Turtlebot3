@@ -41,9 +41,10 @@ class LaneFollowing(Node):
         self.get_logger().info(self.nodeStatusObstacle)
      
     def listener_callback(self, data):
+        
 
-        cx_target = 0.   # Par défaut au centre de l'image
-        cy_target = 0. # Par défaut au centre de l'image
+        # cx_target = 0.   # Par défaut au centre de l'image
+        # cy_target = 0. # Par défaut au centre de l'image
         if self.nodeStatusObstacle== "Off":
 
             # change node status et envoie
@@ -171,6 +172,9 @@ class LaneFollowing(Node):
                     # Dessiner le point cible
                     cv2.circle(current_frame_crop, (cx_target, cy_target), 5, (0, 255, 0), 2)  # Vert, épaisseur 2
 
+                    self.message.x=float(cx_target)
+                    self.message.y= float(cy_target)
+                    self.publisher.publish(self.message)
 
 
             # elif M_red['m00'] ==0 and M_green['m00']!=0:
@@ -250,13 +254,13 @@ class LaneFollowing(Node):
             # affiche
             cv2.imshow("camera", current_frame)
             cv2.waitKey(1)
-        else:
-            cx_target=0.
-            cy_target=0.
+        # else:
+        #     cx_target=0.
+        #     cy_target=0.
 
-        self.message.x=float(cx_target)
-        self.message.y= float(cy_target)
-        self.publisher.publish(self.message)
+            # self.message.x=float(cx_target)
+            # self.message.y= float(cy_target)
+            # self.publisher.publish(self.message)
 
             
 

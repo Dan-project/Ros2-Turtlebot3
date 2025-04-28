@@ -22,6 +22,7 @@ setup(
         'console_scripts': [
             "avoid = robot_perception.obstacle_avoidance2:main", # nom executable node évitement d'obstacle avec le capteur Lidar
             "follow = robot_perception.lane_following:main", # nom executable node suivie de voie avec la camera
+            "corridor = robot_perception.corridor:main",
         ],
     },
 )

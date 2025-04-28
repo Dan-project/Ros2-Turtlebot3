@@ -17,6 +17,15 @@ def generate_launch_description():
             name='turtlebot',
             emulate_tty=True, # pour pas bloquer les fenetres
         ),
+
+        Node(
+            package='robot_perception',
+            namespace='corridor',
+            executable='corridor',
+            name='turtlebot',
+            # emulate_tty=True, # pour pas bloquer les fenetres
+        ),
+
         Node(
             package='robot_navigation',
             namespace="navigation",
